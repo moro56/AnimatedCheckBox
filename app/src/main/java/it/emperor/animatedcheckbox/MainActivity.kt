@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
             performClick()
         }
 
-        radioGroup.setOnCheckedChangeListener { radioGroup, i ->
+        radioGroup.setOnCheckedChangeListener { _, i ->
             when (i) {
                 R.id.radioButton -> updateAnimationDuration(250L)
                 R.id.radioButton2 -> updateAnimationDuration(500L)
