@@ -11,7 +11,7 @@ ext {
 
     publishedGroupId = "it.emperor.animatedcheckbox"
     artifact = "animatedcheckbox"
-    libraryVersion = "1.0.0"
+    libraryVersion = "1.0.1"
 
     libraryDescription = "Custom CheckBox with animation"
     siteUrl = "https://github.com/moro56/AnimatedCheckBox"
@@ -30,8 +30,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
     }
 
     buildTypes {

@@ -89,15 +89,6 @@ class AnimatedCheckBox @JvmOverloads constructor(context: Context, attrs: Attrib
         animator.addUpdateListener {
             update(it)
         }
-        animator.addListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationCancel(animation: Animator?) {
-                animation?.removeAllListeners()
-            }
-
-            override fun onAnimationEnd(animation: Animator?) {
-                onChange(checked)
-            }
-        })
 
         // Initialize click listener
         setOnClickListener {
@@ -124,6 +115,7 @@ class AnimatedCheckBox @JvmOverloads constructor(context: Context, attrs: Attrib
     fun updateState(checked: Boolean, animate: Boolean = false) {
         this.checked = checked
         animator.cancel()
+        animator.removeAllListeners()
 
         if (animate) {
             startAnimation()
@@ -295,6 +287,15 @@ class AnimatedCheckBox @JvmOverloads constructor(context: Context, attrs: Attrib
         val fraction = Math.abs(endValue - animationProgress)
         animator.setFloatValues(animationProgress, endValue)
         animator.duration = (duration * fraction).toLong()
+        animator.addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationCancel(animation: Animator?) {
+                animation?.removeAllListeners()
+            }
+
+            override fun onAnimationEnd(animation: Animator?) {
+                onChange(checked)
+            }
+        })
         animator.start()
     }
 
