@@ -25,10 +25,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        app:acb_border_not_checked_color="#000"
         app:acb_checked="true"
-        app:acb_circle_color="#ccc"
-        app:acb_hook_color="#fff"
+        app:acb_circle_color="#ff0"
         app:acb_hook_stroke_width="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/animatedcheckbox" />
@@ -40,9 +38,10 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         app:acb_border_checked_color="#f0f"
-        app:acb_border_checked_stroke_width="4dp"
+        app:acb_border_checked_stroke_width="10dp"
         app:acb_circle_color="#0f0"
         app:acb_hook_stroke_width="2dp"
+        app:acb_padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/animatedcheckbox1" />
 
@@ -57,6 +56,7 @@
         app:acb_circle_color="#0ff"
         app:acb_hook_color="#00f"
         app:acb_hook_stroke_width="8dp"
+        app:acb_padding="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/animatedcheckbox"
         app:layout_constraintTop_toTopOf="parent" />
@@ -67,6 +67,8 @@
         android:layout_height="90dp"
         android:layout_marginTop="32dp"
         app:acb_circle_color="#f00"
+        app:acb_hook_color="#fff"
+        app:acb_border_not_checked_color="#000"
         app:acb_hook_stroke_width="2dp"
         app:layout_constraintStart_toStartOf="@+id/animatedcheckbox2"
         app:layout_constraintTop_toBottomOf="@+id/animatedcheckbox2" />

@@ -1,5 +1,6 @@
 package it.emperor.animatedcheckbox.extension
 
+import android.content.res.Resources
 import android.graphics.Color
 
 fun Float.toRange(oldMin: Float, oldMax: Float, newMin: Float, newMax: Float): Float =
@@ -17,3 +18,5 @@ fun FloatArray.animateColor(colorFrom: FloatArray, colorTo: FloatArray, animated
     this[2] = colorFrom[2] + (colorTo[2] - colorFrom[2]) * animatedFraction;
     return Color.HSVToColor(this)
 }
+
+fun Float.toPx(): Float = this * Resources.getSystem().displayMetrics.density

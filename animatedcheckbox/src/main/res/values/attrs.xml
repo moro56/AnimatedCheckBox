@@ -9,5 +9,6 @@
         <attr name="acb_border_checked_stroke_width" format="dimension" />
         <attr name="acb_animation_duration" format="integer" />
         <attr name="acb_checked" format="boolean" />
+        <attr name="acb_padding" format="dimension" />
     </declare-styleable>
 </resources>
