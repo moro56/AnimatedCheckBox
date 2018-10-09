@@ -12,6 +12,17 @@ Add dependency into app build.gradle
 implementation 'it.emperor.animatedcheckbox:animatedcheckbox:1.0.0'
 ```
 
+If gradle failed to sync, try adding maven repository into project build.gradle
+```
+allprojects {
+    repositories {
+        maven {
+            url  "https://dl.bintray.com/moro56/AnimatedCheckBox"
+        }
+    }
+}
+```
+
 ## Sample
 See `app` module
 
