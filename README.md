@@ -1,5 +1,11 @@
 # AnimatedCheckBox
 
+Custom CheckBox with animation (Kotlin)
+
+### Example
+
+<img src="sample.gif" width="300">
+
 ## Usage
 Add dependency into app build.gradle
 ```
