@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AnimatedCheckBox">
+        <attr name="acb_circle_color" format="color" />
+        <attr name="acb_hook_color" format="color" />
+        <attr name="acb_border_checked_color" format="color" />
+        <attr name="acb_border_not_checked_color" format="color" />
+        <attr name="acb_hook_stroke_width" format="dimension" />
+        <attr name="acb_border_checked_stroke_width" format="dimension" />
+        <attr name="acb_animation_duration" format="integer" />
+        <attr name="acb_checked" format="boolean" />
+    </declare-styleable>
+</resources>
