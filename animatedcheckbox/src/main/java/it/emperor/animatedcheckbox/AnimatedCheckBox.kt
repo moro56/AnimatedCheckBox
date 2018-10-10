@@ -27,14 +27,47 @@ class AnimatedCheckBox @JvmOverloads constructor(context: Context, attrs: Attrib
     private val paint: Paint
     private val path: Path
 
-    private var circleColor: Int = DEFAULT_CIRCLE_COLOR
-    private var hookColor: Int = DEFAULT_HOOK_COLOR
-    private var borderCheckedColor: Int = DEFAULT_BORDER_CHECKED_COLOR
-    private var borderNotCheckedColor: Int = hookColor
-    private var hookStrokeWidth: Float = DEFAULT_HOOK_STROKE_WIDTH
-    private var borderCheckedStrokeWidth: Float = DEFAULT_BORDER_CHECKED_STROKE_WIDTH
-    private var duration: Long = DEFAULT_ANIMATION_DURATION
-    private var padding: Float = 2f.toPx()
+    var circleColor: Int = DEFAULT_CIRCLE_COLOR
+        set(value) {
+            field = value
+            invalidate()
+        }
+    var hookColor: Int = DEFAULT_HOOK_COLOR
+        set(value) {
+            field = value
+            invalidate()
+        }
+    var borderCheckedColor: Int = DEFAULT_BORDER_CHECKED_COLOR
+        set(value) {
+            field = value
+            invalidate()
+        }
+    var borderNotCheckedColor: Int = hookColor
+        set(value) {
+            field = value
+            invalidate()
+        }
+    var hookStrokeWidth: Float = DEFAULT_HOOK_STROKE_WIDTH
+        set(value) {
+            field = value
+            invalidate()
+        }
+    var borderCheckedStrokeWidth: Float = DEFAULT_BORDER_CHECKED_STROKE_WIDTH
+        set(value) {
+            field = value
+            invalidate()
+        }
+    var duration: Long = DEFAULT_ANIMATION_DURATION
+        set(value) {
+            field = value
+            invalidate()
+        }
+    var padding: Float = 2f.toPx()
+        set(value) {
+            field = value
+            invalidate()
+        }
+    var ignoreAnimation: Boolean = false
 
     private var checked: Boolean = false
     private var onChange: (checked: Boolean) -> Unit = {}
@@ -63,6 +96,7 @@ class AnimatedCheckBox @JvmOverloads constructor(context: Context, attrs: Attrib
             checked = array.getBoolean(R.styleable.AnimatedCheckBox_acb_checked, checked)
             colorAnimation = if (checked) hookColor else borderNotCheckedColor
             padding = array.getDimension(R.styleable.AnimatedCheckBox_acb_padding, padding)
+            ignoreAnimation = array.getBoolean(R.styleable.AnimatedCheckBox_acb_ignore_animation, ignoreAnimation)
             array.recycle()
         }
         animationProgress = if (checked) 1f else 0f
@@ -92,7 +126,7 @@ class AnimatedCheckBox @JvmOverloads constructor(context: Context, attrs: Attrib
 
         // Initialize click listener
         setOnClickListener {
-            updateState(!checked, true)
+            setChecked(!checked, !ignoreAnimation)
         }
     }
 
@@ -112,7 +146,7 @@ class AnimatedCheckBox @JvmOverloads constructor(context: Context, attrs: Attrib
      * @param animate animating the update of the state
      */
     @JvmOverloads
-    fun updateState(checked: Boolean, animate: Boolean = false) {
+    fun setChecked(checked: Boolean, animate: Boolean = false) {
         this.checked = checked
         animator.cancel()
         animator.removeAllListeners()
@@ -121,18 +155,16 @@ class AnimatedCheckBox @JvmOverloads constructor(context: Context, attrs: Attrib
             startAnimation()
         } else {
             animationProgress = if (checked) 1f else 0f
+            invalidate()
         }
     }
 
     /**
-     * Update the duration of the animation
+     * The view is checked
      *
-     * @param duration the duration of the animation
+     * @return is checked
      */
-    fun updateDuration(duration: Long) {
-        this.duration = duration
-        invalidate()
-    }
+    fun isChecked() = checked
 
     /**
      * The animation is currently running

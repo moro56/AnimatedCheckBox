@@ -14,27 +14,34 @@ class MainActivity : AppCompatActivity() {
             performClick()
         }
 
-        radioGroup.setOnCheckedChangeListener { _, i ->
-            when (i) {
+        radioGroup.setOnCheckedChangeListener { _, id ->
+            when (id) {
                 R.id.radioButton -> updateAnimationDuration(250L)
                 R.id.radioButton2 -> updateAnimationDuration(500L)
                 R.id.radioButton3 -> updateAnimationDuration(1000L)
                 R.id.radioButton4 -> updateAnimationDuration(2000L)
                 R.id.radioButton5 -> updateAnimationDuration(3000L)
             }
+        }
 
+        checkBox.setOnCheckedChangeListener { _, checked ->
+            animatedcheckbox.ignoreAnimation = checked
+            animatedcheckbox1.ignoreAnimation = checked
+            animatedcheckbox2.ignoreAnimation = checked
+            animatedcheckbox3.ignoreAnimation = checked
+            animatedcheckbox11.ignoreAnimation = checked
         }
     }
 
-    fun updateAnimationDuration(duration: Long) {
-        animatedcheckbox.updateDuration(duration)
-        animatedcheckbox1.updateDuration(duration)
-        animatedcheckbox2.updateDuration(duration)
-        animatedcheckbox3.updateDuration(duration)
-        animatedcheckbox11.updateDuration(duration)
+    private fun updateAnimationDuration(duration: Long) {
+        animatedcheckbox.duration = duration
+        animatedcheckbox1.duration = duration
+        animatedcheckbox2.duration = duration
+        animatedcheckbox3.duration = duration
+        animatedcheckbox11.duration = duration
     }
 
-    fun performClick() {
+    private fun performClick() {
         animatedcheckbox.performClick()
         animatedcheckbox1.performClick()
         animatedcheckbox2.performClick()

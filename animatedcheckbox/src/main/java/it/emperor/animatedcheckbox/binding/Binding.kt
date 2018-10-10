@@ -5,7 +5,7 @@ import it.emperor.animatedcheckbox.AnimatedCheckBox
 
 @BindingAdapter("checked")
 fun AnimatedCheckBox.setChecked(checked: Boolean) {
-    this.updateState(checked)
+    this.setChecked(checked)
 }
 
 @BindingAdapter("onChange")

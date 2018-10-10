@@ -11,7 +11,7 @@ ext {
 
     publishedGroupId = "it.emperor.animatedcheckbox"
     artifact = "animatedcheckbox"
-    libraryVersion = "1.0.1"
+    libraryVersion = "1.0.2"
 
     libraryDescription = "Custom CheckBox with animation"
     siteUrl = "https://github.com/moro56/AnimatedCheckBox"
