@@ -9,7 +9,7 @@ Custom CheckBox with animation (Kotlin)
 ## Usage
 Add dependency into app build.gradle
 ```
-implementation 'it.emperor.animatedcheckbox:animatedcheckbox:1.0.1'
+implementation 'it.emperor.animatedcheckbox:animatedcheckbox:1.0.2'
 ```
 
 If gradle failed to sync, try adding maven repository into project build.gradle
@@ -46,8 +46,8 @@ See `app` module
 #### Update state
 To update the state of the checkbox (checked or not checked):
 ```kotlin
-animatedCheckBox.updateState(true, true) // animated
-animatedCheckBox.updateState(false) // not animated
+animatedCheckBox.setChecked(true, true) // animated
+animatedCheckBox.setChecked(false) // not animated
 ```
 
 #### Callback
