@@ -9,7 +9,7 @@ Custom CheckBox with animation (Kotlin)
 ## Usage
 Add dependency into app build.gradle
 ```
-implementation 'it.emperor.animatedcheckbox:animatedcheckbox:1.0.0'
+implementation 'it.emperor.animatedcheckbox:animatedcheckbox:1.0.1'
 ```
 
 If gradle failed to sync, try adding maven repository into project build.gradle
