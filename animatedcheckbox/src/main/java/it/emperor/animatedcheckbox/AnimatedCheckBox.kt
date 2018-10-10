@@ -155,6 +155,7 @@ class AnimatedCheckBox @JvmOverloads constructor(context: Context, attrs: Attrib
             startAnimation()
         } else {
             animationProgress = if (checked) 1f else 0f
+            updateColorAnimation(1f)
             invalidate()
         }
     }
@@ -340,10 +341,19 @@ class AnimatedCheckBox @JvmOverloads constructor(context: Context, attrs: Attrib
         val fraction = animation.animatedValue as Float
         animationProgress = fraction
         if (useAnimatedColor()) {
-            if (!checked) colorAnimation = colorAnimationHsv.animateColor(colorFrom, colorTo, animation.animatedFraction)
-            else colorAnimation = colorAnimationHsv.animateColor(colorTo, colorFrom, animation.animatedFraction)
+            updateColorAnimation(animation.animatedFraction)
         }
         invalidate()
+    }
+
+    /**
+     * Update the color animation value
+     *
+     * @param animatedFraction Progress of the animation
+     */
+    private fun updateColorAnimation(animatedFraction: Float) {
+        if (!checked) colorAnimation = colorAnimationHsv.animateColor(colorFrom, colorTo, animatedFraction)
+        else colorAnimation = colorAnimationHsv.animateColor(colorTo, colorFrom, animatedFraction)
     }
 
     private fun padding() = padding * 2
