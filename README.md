@@ -9,7 +9,7 @@ Custom CheckBox with animation (Kotlin)
 ## Usage
 Add dependency into app build.gradle
 ```
-implementation 'it.emperor.animatedcheckbox:animatedcheckbox:1.0.1'
+implementation 'it.emperor.animatedcheckbox:animatedcheckbox:1.0.2'
 ```
 
 If gradle failed to sync, try adding maven repository into project build.gradle
@@ -46,8 +46,8 @@ See `app` module
 #### Update state
 To update the state of the checkbox (checked or not checked):
 ```kotlin
-animatedCheckBox.updateState(true, true) // animated
-animatedCheckBox.updateState(false) // not animated
+animatedCheckBox.setChecked(true, true) // animated
+animatedCheckBox.setChecked(false) // not animated
 ```
 
 #### Callback
@@ -70,6 +70,7 @@ Name | Type | Description
 `acb_hook_color` | Color | The color of the hook
 `acb_hook_stroke_width` | Dimension | The stroke width of the circle (used for the circle border too (when checked))
 `acb_padding` | Dimension | The padding of the view
+`acb_ignore_animation` | Boolean | Don't animate the view when clicked
 
 ## License
 ```
