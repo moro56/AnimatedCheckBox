@@ -70,6 +70,7 @@ Name | Type | Description
 `acb_hook_color` | Color | The color of the hook
 `acb_hook_stroke_width` | Dimension | The stroke width of the circle (used for the circle border too (when checked))
 `acb_padding` | Dimension | The padding of the view
+`acb_ignore_animation` | Boolean | Don't animate the view when clicked
 
 ## License
 ```
